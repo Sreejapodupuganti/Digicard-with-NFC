@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a50f8120.css",
+    "main.js": "/static/js/main.730592e8.js",
+    "static/js/453.ab5646c6.chunk.js": "/static/js/453.ab5646c6.chunk.js",
+    "static/media/profile.svg": "/static/media/profile.f0be4d31dc86fd7c300ab2599b3330bd.svg",
+    "static/media/payment_card.svg": "/static/media/payment_card.1f349926762a434d6c62ccf70eecf5e2.svg",
+    "static/media/character-drawing.svg": "/static/media/character-drawing.a2b9fbb78bc86b900ce06d5d4708d0c5.svg",
+    "static/media/login-illustration.svg": "/static/media/login-illustration.40ae2ea4cd4b4fa3a2371b909c869490.svg",
+    "static/media/card.svg": "/static/media/card.6b5c837f8a53233bff54f458e7821039.svg",
+    "static/media/confirmed.svg": "/static/media/confirmed.7b4b2266fabb4425f94dbd74709dfa92.svg",
+    "index.html": "/index.html",
+    "static/media/nfc.svg": "/static/media/nfc.abe7088953e303c2552de4e3fa17b4d3.svg",
+    "main.a50f8120.css.map": "/static/css/main.a50f8120.css.map",
+    "main.730592e8.js.map": "/static/js/main.730592e8.js.map",
+    "453.ab5646c6.chunk.js.map": "/static/js/453.ab5646c6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a50f8120.css",
+    "static/js/main.730592e8.js"
+  ]
+}
