@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout Repo
@@ -23,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Build React App
-        run: CI=false npm run build   # <-- This is the fix
+        run: CI=false npm run build   # prevents warnings from breaking build
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
@@ -39,11 +41,11 @@ jobs:
       contents: read
 
     steps:
-      - name: Download artifact from build job
+      - name: Download Artifact from Build Job
         uses: actions/download-artifact@v4
         with:
           name: node-app
-      
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -52,9 +54,9 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A2A315F8FA3D4B6A9A71FCB0E43C7489 }}
 
       - name: Deploy to Azure Web App
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'FrontendNFC'
           slot-name: 'Production'
           package: .
+
