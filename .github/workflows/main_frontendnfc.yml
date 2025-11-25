@@ -25,13 +25,13 @@ jobs:
         run: npm install
 
       - name: Build React App
-        run: CI=false npm run build   # prevents warnings from breaking build
+        run: CI=false npm run build
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: node-app
-          path: .
+          name: build
+          path: build/        # ✔ ONLY upload the production build folder!
 
   deploy:
     runs-on: ubuntu-latest
@@ -44,7 +44,8 @@ jobs:
       - name: Download Artifact from Build Job
         uses: actions/download-artifact@v4
         with:
-          name: node-app
+          name: build
+          path: build/        # ✔ Download into a /build folder
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -58,5 +59,4 @@ jobs:
         with:
           app-name: 'FrontendNFC'
           slot-name: 'Production'
-          package: .
-
+          package: build/      # ✔ DEPLOY ONLY THE BUILD DIRECTORY!
