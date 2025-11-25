@@ -31,7 +31,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build
-          path: build/        # ✔ ONLY upload the production build folder!
+          path: build/
+          # 👆 Only upload the final build folder
 
   deploy:
     runs-on: ubuntu-latest
@@ -41,11 +42,11 @@ jobs:
       contents: read
 
     steps:
-      - name: Download Artifact from Build Job
+      - name: Download Build Artifact
         uses: actions/download-artifact@v4
         with:
           name: build
-          path: build/        # ✔ Download into a /build folder
+          path: build/
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -59,4 +60,4 @@ jobs:
         with:
           app-name: 'FrontendNFC'
           slot-name: 'Production'
-          package: build/      # ✔ DEPLOY ONLY THE BUILD DIRECTORY!
+          package: build/    # 👈 Only deploy build folder
